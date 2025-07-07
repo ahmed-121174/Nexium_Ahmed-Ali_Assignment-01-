@@ -9,3 +9,5 @@ This folder contains all dependencies listed in your package.json
 and then run command: npm run build 
 This is the build output folder for a Next.js project
 Or for development preview: run command: npm run dev
+
+after running you will be given a localhost url in terminal run it and there you go with the website.
