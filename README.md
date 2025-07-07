@@ -11,3 +11,7 @@ This is the build output folder for a Next.js project
 Or for development preview: run command: npm run dev
 
 after running you will be given a localhost url in terminal run it and there you go with the website.
+
+I have deployed it on vercel, You can see it using link: https://nexium-ahmed-ali-assignment-01-gmho.vercel.app/
+
+Thank You!
