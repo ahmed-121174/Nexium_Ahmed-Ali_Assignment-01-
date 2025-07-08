@@ -1,23 +1,17 @@
-// pages/api/quotes.js
-// This is a Next.js API route - runs on the server side
-
 export default async function handler(req, res) {
-  // Only allow GET requests
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const { category, limit = 3 } = req.query;
   
-  // In Next.js, server-side env vars don't need NEXT_PUBLIC_ prefix
   const API_KEY = process.env.API_NINJAS_KEY;
   const API_URL = 'https://api.api-ninjas.com/v1/quotes';
   
-  // Log environment info for debugging (Next.js specific)
   console.log('Next.js Environment:', process.env.NODE_ENV);
   console.log('API Key available:', !!API_KEY);
   
-  // Check if API key exists
+  //check if API key exist
   if (!API_KEY) {
     console.error('API_NINJAS_KEY environment variable is not set');
     return res.status(500).json({ 
@@ -67,7 +61,7 @@ export default async function handler(req, res) {
     const data = await response.json();
     console.log('API Response Data:', data);
     
-    // Check if data is an array and has content
+    //check if data is an array and has content
     if (!Array.isArray(data) || data.length === 0) {
       console.log('No quotes returned from API');
       return res.status(200).json({
@@ -77,7 +71,7 @@ export default async function handler(req, res) {
       });
     }
     
-    // Return the data with success status
+    //return the data with success status
     res.status(200).json({
       success: true,
       data: data,
