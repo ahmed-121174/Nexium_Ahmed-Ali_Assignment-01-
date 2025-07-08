@@ -159,8 +159,6 @@ export default function QuoteGenerator() {
   const [hasSearched, setHasSearched] = useState(false);
   const [isUsingAPI, setIsUsingAPI] = useState(false);
   const [apiStatus, setApiStatus] = useState('unknown'); // 'success', 'failed', 'unknown'
-
-  // Updated to use your Next.js API route
   const fetchQuotesFromAPI = async (searchTopic) => {
     try {
       console.log('Fetching quotes for topic:', searchTopic);
@@ -228,11 +226,11 @@ export default function QuoteGenerator() {
     setApiStatus('unknown');
 
     try {
-      // First try to get quotes from API
+      //first trying to get quotes from API
       const apiQuotes = await fetchQuotesFromAPI(topic);
       setQuotes(apiQuotes);
     } catch (error) {
-      // If API fails, use fallback hardcoded quotes
+      // if API fails, use fallback hardcoded quotes
       console.log('API failed, using fallback quotes');
       const fallbackQuotes = getFallbackQuotes(topic);
       setQuotes(fallbackQuotes);
@@ -264,7 +262,6 @@ export default function QuoteGenerator() {
           </div>
         </div>
 
-        {/*input card*/}
         <div className="grid md:grid-cols-2 gap-10 animate-slide-in-left">
           {/*section for input*/}
           <Card className="shadow-md bg-white/80 border border-indigo-200">
@@ -385,7 +382,7 @@ export default function QuoteGenerator() {
 
         {/*footer*/}
         <div className="text-center text-2xl text-red-500 animate-bounce font-bold italic">
-         <p>&copy; Ahmed-Ali_Assignment-1 - AI Enhanced</p>
+         <p>&copy; Ahmed-Ali_Assignment-1 | @Nexium</p>
         </div>
       </div>
     </div>
